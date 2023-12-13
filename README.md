@@ -10,7 +10,7 @@
 | Andana Satrio Herdiansyah | 5027211031 | 
 | Bagus Cahyo Arrasyid | 5027211033 |
 | Sulthan Akmal Rafliansyah | 5027211039 |
-| Ridho Putra Indrawan | 50272110XX |
+| Ridho Husni Indrawan | 5027211043 |
 
 
 ## Rancangan Arsitektur
