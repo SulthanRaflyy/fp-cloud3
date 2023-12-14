@@ -10,7 +10,7 @@
 | Andana Satrio Herdiansyah | 5027211031 | 
 | Bagus Cahyo Arrasyid | 5027211033 |
 | Sulthan Akmal Rafliansyah | 5027211039 |
-| Ridho Putra Indrawan | 50272110XX |
+| Ridho Husni Indrawan | 5027211043 |
 
 ## Pendahuluan 
 Dalam rangka memenuhi penilaian pada mata kuliah teknologi komputasi awan. Pada penilaian akhir semester diberikan tugas final project yang telah diberikan oleh dosen pengampu Bapak Fuad Dary Rosyadi, S.Kom., M.Kom. Seluruh mahasiswa yang mengambil mata kuliah teknologi komputasi awan yang dibagi menjadi beberapa kelompok setiap kelasnya yang beranggotakan 4- 5 orang. Kelompok ini sama dengan kelompok tugas presentasi kelas sebelumnya. Pada tugas ini mencakup capaian pembelajaran mata kuliah mahasiswa mampu memahami dan menerapkan berbagai servis pada layanan awan dan mahasiswa mampu merancang dan mengaplikasikan teknologi komputasi awan.
