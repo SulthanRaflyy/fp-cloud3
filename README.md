@@ -60,7 +60,134 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 ## Implementasi
 
-**[Nunggu Konfirmasi Bagyo]**
+Implementasi projek menggunakan penyedia platform awan https://www.digitalocean.com/ dengan setting akun github student pack yang mendapatkan kredit sebesar $200 selama satu tahun. Berikut merupakan langkah-langkah implementasi:
+1. Akses https://www.digitalocean.com/  dan Login menggunakan akun github student pack
+
+2. Setelah masuk pada halaman awal DigitalOcean kita membuat Project baru pada bagian navbar kiri layar dan mengisi nama dan tujuan pembuatan project.
+
+3. Selesaikan pembuatan project dan buka project tersebut, melakukan pembuatan VM dengan mengklik tombol create pada bagian atas project. Droplets digunakan untuk membuat Load Balancer dan Worker sedangkan Database digunakan sebagai Database atau tempat menyimpan data.
+
+		
+4. Pembuatan Droplets dan Load balancer diawali dengan pemilihan area Cloud VM, dilanjut menentukan OS yang akan digunakan, kemudian memilih konfigurasi yang sesuai permintaan disertai dengan penambahan akses keamanan, dan finalisasi pembuatan berupa penamaan dan kuantitas Droplets juga pembayaran.
+
+
+
+
+
+
+5. Pembuatan Database VM diawali dengan pemilihan area dari penyedia Cloud DB, dilanjut pemilihan jenis dari Database, kemudian melakukan pemilihan konfigurasi DB dan yang terakhir finalisasi pembuatan berupa penamaan dan kuantitas DB juga pembayaran.
+
+
+
+
+
+
+
+
+6. Setelah selesai maka akan muncul Droplets dan Database yang sudah dibuat disertai keterangan IP pada masing-masing Droplets
+
+
+7. Melakukan setup Worker Droplets, dapat melalui web console atau menggunakan ssh via terminal perangkat lokal. Jika menggunakan ssh harus memiliki kredensial keamanan yang telah diatur saat pembuatan (SSH Key / Password). Format ssh root@<IPDroplets> kemudian masukkan kredensial keamanan sebelumnya
+
+8. Pada Worker Droplet setup dengan membuat file app.py dengan command nano app.py dan mengcopy-paste kode dibawah:
+```   
+from flask import Flask, jsonify, request
+from flask_pymongo import PyMongo
+from bson import ObjectId
+
+app = Flask(__name__)
+
+# Configuration for MongoDB
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/orders_db'
+mongo = PyMongo(app)
+
+# Routes
+
+# Get all orders
+@app.route('/orders', methods=['GET'])
+def get_orders():
+    orders = mongo.db.orders.find()
+    orders_list = []
+    for order in orders:
+        order['_id'] = str(order['_id'])  # Convert ObjectId to string
+        orders_list.append(order)
+    return jsonify({"orders": orders_list})
+
+# Get a specific order by ID
+@app.route('/orders/<string:order_id>', methods=['GET'])
+def get_order(order_id):
+    order = mongo.db.orders.find_one({'_id': ObjectId(order_id)})
+    if order:
+        order['_id'] = str(order['_id'])  # Convert ObjectId to string
+        return jsonify({"order": order})
+    else:
+        return jsonify({"message": "Order not found"}), 404
+
+# Create a new order
+@app.route('/orders', methods=['POST'])
+def create_order():
+    data = request.json
+    new_order = {
+        'product': data['product'],
+        'quantity': data['quantity'],
+        'customer_name': data['customer_name'],
+        'customer_address': data['customer_address']
+    }
+    result = mongo.db.orders.insert_one(new_order)
+    new_order['_id'] = str(result.inserted_id)  # Convert ObjectId to string
+    return jsonify({"message": "Order created successfully", "order": new_order})
+
+# Update an order by ID
+@app.route('/orders/<string:order_id>', methods=['PUT'])
+def update_order(order_id):
+    data = request.json
+    updated_order = {
+        'product': data.get('product'),
+        'quantity': data.get('quantity'),
+        'customer_name': data.get('customer_name'),
+        'customer_address': data.get('customer_address')
+    }
+    mongo.db.orders.update_one({'_id': ObjectId(order_id)}, {'$set': updated_order})
+    updated_order['_id'] = order_id
+    return jsonify({"message": "Order updated successfully", "order": updated_order})
+
+# Delete an order by ID
+@app.route('/orders/<string:order_id>', methods=['DELETE'])
+def delete_order(order_id):
+    result = mongo.db.orders.delete_one({'_id': ObjectId(order_id)})
+    if result.deleted_count > 0:
+        return jsonify({"message": "Order deleted successfully"})
+    else:
+        return jsonify({"message": "Order not found"}), 404
+
+if __name__ == '__main__':
+    app.run(host=’0.0.0.0’)
+```
+9. Setelah itu save program dan melakukan instalasi requirement untuk file app.py yang akan dijalankan yaitu python3, pip, pip flask dan pip flask-pymongo
+10. Selanjutnya setup database, saat mengklik database vm maka akan muncul Connection Details yang digunakan untuk menghubungkan worker dengan database dengan format public network dan flag pada bagian atas, user:do-admin dan <namaDB> pada bagian bawah setting koneksi. Jangan lupa memasukkan URl mongoDB tersebut ke dalam konfig app.py pada worker. Apabila belum memiliki database maka disarankan untuk membuat database terlebih dahulu 
+
+
+
+11. Setelah melakukan setup worker dan database, waktunya setup load balancing. Sama seperti worker, kita dapat menggunakan web console ataupun ssh dengan format yang sama dengan worker karena sama-sama berjenis droplets. Kita melakukan konfigurasi nginx sebagai load balancer dengan mengedit file /etc/nginx/conf.d/default.conf dengan konfig berikut:
+```
+upstream worker{
+    server <IPWorker1>:<PortWorker>;
+    server <IPWorker2>:<PortWorker>;
+    ...
+}
+
+server {
+    listen 80;
+    server_name <IPLoadBalancer>;
+
+    location / {
+        proxy_pass http://worker;
+    }
+}
+```
+12. Selanjutnya menghidupkan server dengan command python3 app.py pada worker dan service nginx start
+13. Selamat bermain dan beranalisis
+
 
 
 ## Analisis Pengujian
@@ -115,6 +242,6 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 ## Kesimpulan
 
-**[Nunggu Implementasi]**
+Berdasarkan hasil pengujian kinerja server, dapat disimpulkan bahwa server mampu menangani permintaan dengan baik pada tingkat pengguna yang moderat, hingga 100 pengguna dengan laju spawn yang meningkat. Meskipun tidak terdapat kegagalan pada uji skenario ekstrem dengan 1000 pengguna, terjadi peningkatan dramatis pada waktu respons untuk permintaan GET, menunjukkan adanya potensi ketidakmampuan server dalam menangani beban tinggi. Oleh karena itu, disarankan untuk mengoptimalkan kemampuan server, khususnya dalam menangani permintaan GET dalam skenario penggunaan yang ekstrem, guna memastikan kinerja yang responsif dan konsisten di bawah tekanan beban yang tinggi.
 
 
