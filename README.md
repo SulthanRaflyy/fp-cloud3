@@ -44,7 +44,7 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 
 ## Rancangan Arsitektur
-
+![Untitled Diagram](https://github.com/SulthanRaflyy/fp-cloud3/assets/113494333/1567001f-8fc8-4bf7-8385-f82ba5a4fa33) 
 
 
 | No. | Kebutuhan | Spesifikasi | Harga |
