@@ -62,32 +62,38 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 Implementasi projek menggunakan penyedia platform awan https://www.digitalocean.com/ dengan setting akun github student pack yang mendapatkan kredit sebesar $200 selama satu tahun. Berikut merupakan langkah-langkah implementasi:
 1. Akses https://www.digitalocean.com/  dan Login menggunakan akun github student pack
+[![1.jpg](https://i.postimg.cc/vmj3kX4V/1.jpg)](https://postimg.cc/PLWW8WzX)
 
 2. Setelah masuk pada halaman awal DigitalOcean kita membuat Project baru pada bagian navbar kiri layar dan mengisi nama dan tujuan pembuatan project.
+[![2.jpg](https://i.postimg.cc/3JHb3Lnj/2.jpg)](https://postimg.cc/mh8SwSxh)
 
 3. Selesaikan pembuatan project dan buka project tersebut, melakukan pembuatan VM dengan mengklik tombol create pada bagian atas project. Droplets digunakan untuk membuat Load Balancer dan Worker sedangkan Database digunakan sebagai Database atau tempat menyimpan data.
-
+[![3.jpg](https://i.postimg.cc/ZKFsnrMG/3.jpg)](https://postimg.cc/BXbBw1sp)
 		
 4. Pembuatan Droplets dan Load balancer diawali dengan pemilihan area Cloud VM, dilanjut menentukan OS yang akan digunakan, kemudian memilih konfigurasi yang sesuai permintaan disertai dengan penambahan akses keamanan, dan finalisasi pembuatan berupa penamaan dan kuantitas Droplets juga pembayaran.
+[![4.jpg](https://i.postimg.cc/zvTtnWXR/4.jpg)](https://postimg.cc/K3vDb1TZ)
 
+[![5.jpg](https://i.postimg.cc/VkfGCJyd/5.jpg)](https://postimg.cc/qzFxfMvT)
 
+[![6.jpg](https://i.postimg.cc/hGh22Ntn/6.jpg)](https://postimg.cc/3y5jRSGf)
 
+[![7.jpg](https://i.postimg.cc/P5S6zdhK/7.jpg)](https://postimg.cc/hX7bKWX7)
 
-
+[![8.jpg](https://i.postimg.cc/q7759zQ9/8.jpg)](https://postimg.cc/ZW1HNYGc)
 
 5. Pembuatan Database VM diawali dengan pemilihan area dari penyedia Cloud DB, dilanjut pemilihan jenis dari Database, kemudian melakukan pemilihan konfigurasi DB dan yang terakhir finalisasi pembuatan berupa penamaan dan kuantitas DB juga pembayaran.
 
+[![9.jpg](https://i.postimg.cc/MTC3MtxS/9.jpg)](https://postimg.cc/wykQnX7f)
 
+[![10.jpg](https://i.postimg.cc/43FSZsSn/10.jpg)](https://postimg.cc/gw8DHFdP)
 
-
-
-
-
+[![11.jpg](https://i.postimg.cc/K8xVD9Tc/11.jpg)](https://postimg.cc/PPV2tQK0)
 
 6. Setelah selesai maka akan muncul Droplets dan Database yang sudah dibuat disertai keterangan IP pada masing-masing Droplets
-
+[![12.jpg](https://i.postimg.cc/4NzqtCmF/12.jpg)](https://postimg.cc/SJxgFvLW)
 
 7. Melakukan setup Worker Droplets, dapat melalui web console atau menggunakan ssh via terminal perangkat lokal. Jika menggunakan ssh harus memiliki kredensial keamanan yang telah diatur saat pembuatan (SSH Key / Password). Format ssh root@<IPDroplets> kemudian masukkan kredensial keamanan sebelumnya
+[![13.jpg](https://i.postimg.cc/pVj6bNYX/13.jpg)](https://postimg.cc/w36VLGGS)
 
 8. Pada Worker Droplet setup dengan membuat file app.py dengan command nano app.py dan mengcopy-paste kode dibawah:
 ```   
@@ -165,10 +171,11 @@ if __name__ == '__main__':
 ```
 9. Setelah itu save program dan melakukan instalasi requirement untuk file app.py yang akan dijalankan yaitu python3, pip, pip flask dan pip flask-pymongo
 10. Selanjutnya setup database, saat mengklik database vm maka akan muncul Connection Details yang digunakan untuk menghubungkan worker dengan database dengan format public network dan flag pada bagian atas, user:do-admin dan <namaDB> pada bagian bawah setting koneksi. Jangan lupa memasukkan URl mongoDB tersebut ke dalam konfig app.py pada worker. Apabila belum memiliki database maka disarankan untuk membuat database terlebih dahulu 
+[![14.jpg](https://i.postimg.cc/W18yWMmG/14.jpg)](https://postimg.cc/hXJMhQ5v)
 
+[![15.jpg](https://i.postimg.cc/hjz3t6ks/15.jpg)](https://postimg.cc/2bYxHc8L)
 
-
-11. Setelah melakukan setup worker dan database, waktunya setup load balancing. Sama seperti worker, kita dapat menggunakan web console ataupun ssh dengan format yang sama dengan worker karena sama-sama berjenis droplets. Kita melakukan konfigurasi nginx sebagai load balancer dengan mengedit file /etc/nginx/conf.d/default.conf dengan konfig berikut:
+12. Setelah melakukan setup worker dan database, waktunya setup load balancing. Sama seperti worker, kita dapat menggunakan web console ataupun ssh dengan format yang sama dengan worker karena sama-sama berjenis droplets. Kita melakukan konfigurasi nginx sebagai load balancer dengan mengedit file /etc/nginx/conf.d/default.conf dengan konfig berikut:
 ```
 upstream worker{
     server <IPWorker1>:<PortWorker>;
