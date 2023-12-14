@@ -205,6 +205,23 @@ server {
 
 
 ## Analisis Pengujian
+### Hasil Pengujian endpoint setiap API menggunakan Postman
+-> Delete 
+[![Delete.png](https://i.postimg.cc/pLhTCK6p/Delete.png)](https://postimg.cc/68Kt54wX) 
+
+-> Get Orders
+[![Get-orders.png](https://i.postimg.cc/CLcbZCWt/Get-orders.png)](https://postimg.cc/mtFPJ9ZN)
+
+-> Get Orders id
+[![Get-orders-id.png](https://i.postimg.cc/jdnJ5V4W/Get-orders-id.png)](https://postimg.cc/7fDLsWcD)
+
+-> Post 
+[![Post.png](https://i.postimg.cc/pdCm7PRS/Post.png)](https://postimg.cc/nssV9bsK)
+
+-> Put
+[![Put.png](https://i.postimg.cc/pdsdCkBb/Put.png)](https://postimg.cc/wtsHTXP0)
+
+
 ### Analisis Hasil Pengujian
 #### 1. Pengujian A
 - Number of User = 1
