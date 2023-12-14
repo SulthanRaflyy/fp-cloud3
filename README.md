@@ -1,5 +1,5 @@
-# Final Project Teknologi Komputasi Awan 
-## Kelas D 
+# **Final Project Teknologi Komputasi Awan** 
+**Kelas D** 
 ### Kelompok 3 
 
 
@@ -44,8 +44,7 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 
 ## Rancangan Arsitektur
-![Untitled Diagram](https://github.com/SulthanRaflyy/fp-cloud3/assets/113494333/1567001f-8fc8-4bf7-8385-f82ba5a4fa33) 
-
+![ArsitekturCloud_New](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/a6506507-ad69-48e8-afe7-6517b8402a07)
 
 | No. | Kebutuhan | Spesifikasi | Harga |
 |----|-------------------------|-----------------------------------------|-------|
@@ -53,12 +52,14 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 | 2 | Load Balancer | 2vCPU, 2GB RAM | $18 |
 | 3 | Worker 1 | 2vCPU, 2GB RAM | $18 |
 | 4 | Worker 2 | 2vCPU, 2GB RAM | $18 |
+| 5 | Worker 3 | 2vCPU, 2GB RAM | $18 |
+| 6 | Worker 4 | 2vCPU, 2GB RAM | $18 |
+| 7 | Worker 5 | 2vCPU, 2GB RAM | $18 |
 | | | **Total** | **$62** |
 
 ## Implementasi
 
 **[Nunggu Konfirmasi Bagyo]**
-
 
 
 ## Analisis Pengujian
