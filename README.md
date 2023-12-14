@@ -12,10 +12,40 @@
 | Sulthan Akmal Rafliansyah | 5027211039 |
 | Ridho Putra Indrawan | 50272110XX |
 
+## Pendahuluan 
+Dalam rangka memenuhi penilaian pada mata kuliah teknologi komputasi awan. Pada penilaian akhir semester diberikan tugas final project yang telah diberikan oleh dosen pengampu Bapak Fuad Dary Rosyadi, S.Kom., M.Kom. Seluruh mahasiswa yang mengambil mata kuliah teknologi komputasi awan yang dibagi menjadi beberapa kelompok setiap kelasnya yang beranggotakan 4- 5 orang. Kelompok ini sama dengan kelompok tugas presentasi kelas sebelumnya. Pada tugas ini mencakup capaian pembelajaran mata kuliah mahasiswa mampu memahami dan menerapkan berbagai servis pada layanan awan dan mahasiswa mampu merancang dan mengaplikasikan teknologi komputasi awan.
+
+Berikut ini adalah final project mata kuliah teknologi komputasi awan. Sebagai seorang lulusan Teknologi Informasi dengan keahlian di bidang pengembangan aplikasi berbasis komputer dan manajemen layanan awan, saya memiliki kemampuan yang mumpuni untuk merancang, membangun, dan mengelola solusi teknologi informasi yang inovatif. Seiring dengan perkembangan teknologi, penting bagi kita untuk terus beradaptasi dan memanfaatkan peluang bisnis yang muncul di era digital.
+
+Dalam konteks ini, saya memiliki kesempatan untuk berkolaborasi dalam proyek digital marketing yang menarik. Sebuah aplikasi berbasis API telah diberikan kepada saya dengan spesifikasi yang menarik, bertujuan untuk mempermudah pengelolaan pesanan dalam bisnis digital marketing ini.
+
+Aplikasi ini menyediakan beberapa endpoint penting, termasuk pengambilan seluruh pesanan, pengambilan detail pesanan berdasarkan ID, pembuatan pesanan baru, pembaruan pesanan, dan penghapusan pesanan. Seluruh proses ini terintegrasi dengan MongoDB, dengan konfigurasi database yang memadai untuk mendukung pengelolaan data pesanan. Berikut rincian spesifikasi endpoint yang ditentukan : 
+1. Get All Orders:
+   - Endpoint: `GET /orders`
+   - Deskripsi: Mendapatkan daftar seluruh pesanan.
+2. Get a Specific Order by ID:
+   - Endpoint: `GET /orders/<order_id>`
+   - Deskripsi: Mendapatkan detail pesanan berdasarkan ID.
+3. Create a New Order:
+   - Endpoint: `POST /orders`
+   - Deskripsi: Membuat pesanan baru.
+4. Update an Order by ID:
+   - Endpoint: `PUT /orders/<order_id>`
+   - Deskripsi: Memperbarui pesanan yang sudah ada.
+5. Delete an Order by ID:
+   - Endpoint: `DELETE /orders/<order_id>`
+   - Deskripsi: Menghapus pesanan berdasarkan ID.
+
+MongoDB Configuration:
+- Database: `orders_db`
+- Connection URI: `mongodb://localhost:27017/orders_db`
+
+Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bisnis, meningkatkan pengalaman pelanggan, dan mengoptimalkan proses manajemen pesanan melalui aplikasi yang telah disediakan. Proposal ini akan merinci rancangan arsitektur cloud untuk mendukung aplikasi ini, serta langkah-langkah instalasi, implementasi, dan uji coba kinerja menggunakan Locust. Rancangan arsitektur cloud akan mencakup estimasi harga yang diperlukan untuk mendukung infrastruktur tersebut, yang nantinya akan dijelaskan dalam presentasi diskusi pada minggu ke-15.
+
 
 ## Rancangan Arsitektur
 
-**[Inser Picture Here!]**
+
 
 | No. | Kebutuhan | Spesifikasi | Harga |
 |----|-------------------------|-----------------------------------------|-------|
