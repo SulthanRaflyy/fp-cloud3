@@ -56,7 +56,7 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 | 5 | Worker 3 | 1vCPU, 1GB RAM | $6 |
 | 6 | Worker 4 | 1vCPU, 1GB RAM | $6 |
 | 7 | Worker 5 | 1vCPU, 1GB RAM | $6 |
-| | | **Total** | **$62** |
+| | | **Total** | **$51** |
 
 ## Implementasi
 
