@@ -1,4 +1,4 @@
-# **Final Project Teknologi Komputasi Awan** 
+![RRnu875-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/ed503d51-350d-4c5c-b0f8-4c32f18b63a1)![RRnu875-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/9750ab4b-ce84-45a7-86dc-fb38c783ef2e)# **Final Project Teknologi Komputasi Awan** 
 ## Kelas D 
 
 ### Kelompok 3 
@@ -223,56 +223,50 @@ server {
 [![Delete.png](https://i.postimg.cc/pLhTCK6p/Delete.png)](https://postimg.cc/68Kt54wX) 
 
 ### Analisis Hasil Pengujian
+### Least Connection
+
 #### 1. Pengujian A
-- Number of User = 1
-- Spawn Rate = 25
-- Runtime = 60s
-![nu1sr25](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/2f206f24-b0a3-452a-8600-169a83876d6f)
-
-**Analisis**
-- Tidak ada kegagalan dalam permintaan GET atau POST.
-- Waktu rata-rata respons GET relatif tinggi, yang menunjukkan bahwa waktu yang dibutuhkan untuk memperoleh respons dari server cukup lambat.
-- Permintaan POST memiliki waktu respons yang jauh lebih cepat dibandingkan dengan permintaan GET.
-
-#### 2. Pengujian B
-- Number of User = 1
+- Number of User = 950
 - Spawn Rate = 50
 - Runtime = 60s
-![nu1sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/2de7b9d2-2be1-479e-89b4-6b0a05158c81)
+![lcnu950-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/b8c479a2-70b3-4066-89e8-84e8a578d9d4)
 
-**Analisis**
-- Sama seperti pengujian sebelumnya, tidak ada kegagalan.
-- Waktu rata-rata respons untuk permintaan GET dan POST lebih rendah dibandingkan dengan pengujian pertama.
-- Distribusi waktu respons menunjukkan peningkatan kinerja, dimana waktu rata-rata respons menurun untuk kedua metode.
-
-#### 3. Pengujian C
-- Number of User = 1
+#### 2. Pengujian B
+- Number of User = 950
 - Spawn Rate = 100
 - Runtime = 60s
-![nu1sr100](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/631a85e8-066a-41c8-8d1d-d6df5327a608)
+![lcnu950-sr100](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/48000352-40f9-4119-9c93-7b4014452636)
 
-**Analisis**
-- Tidak ada kegagalan yang tercatat.
-- Waktu rata-rata respons GET dan POST stabil dan konsisten dengan pengujian kedua.
-- Tidak ada perubahan signifikan dalam waktu respons yang menunjukkan bahwa server menangani permintaan dengan konsistensi.
+#### 3. Pengujian C
+- Number of User = 975
+- Spawn Rate = 25
+- Runtime = 60s
+![lcnu975-sr25](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/83dff9ab-9b3e-4a49-9751-4fd80ec185a5)
+
+### Round Robin
 
 #### 4. Pengujian D
-- Number of User = 1000
-- Spawn Rate = 1000
+- Number of User = 850
+- Spawn Rate = 100
 - Runtime = 60s
-![nu1000sr1000](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/9aa88636-fabd-4299-a269-1936f680e074)
+![RRnu850-sr100](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/6751f571-7b94-45b0-9d2e-91748dd74ff6)
 
-**Analisis**
-- Tidak ada kegagalan yang tercatat meskipun ada peningkatan besar dalam jumlah pengguna dan laju spawn.
-- Waktu rata-rata respons untuk permintaan GET meningkat secara dramatis, menunjukkan bahwa server mungkin mengalami kesulitan dalam menangani permintaan bersamaan dalam jumlah besar.
-- Permintaan POST juga menunjukkan peningkatan waktu respons tetapi tidak sebesar permintaan GET.
+#### 5. Pengujian E
+- Number of User = 875
+- Spawn Rate = 50
+- Runtime = 60s
+![RRnu875-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/4caeb493-e87c-4ce7-964a-3bb27eb52fcf)
 
-### Analisis Keseluruhan
-- Secara keseluruhan, server tampaknya dapat menangani permintaan dengan baik tanpa kegagalan ketika diuji dengan 1 pengguna dengan laju spawn yang meningkat dari 25 hingga 100.
-- Namun, ketika diuji dengan 1000 pengguna dengan laju spawn yang sama dengan jumlah pengguna, kinerja server menurun secara signifikan, khususnya untuk permintaan GET, yang bisa jadi indikator bahwa server mungkin tidak cukup kuat untuk menangani beban tinggi pengguna bersamaan.
+#### 6. Pengujian F
+- Number of User = 925
+- Spawn Rate = 25
+- Runtime = 60s
+![RRnu925-sr25](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/364fa3ae-e162-4d92-986f-bef6bce08b09)
+
+
 
 ## Kesimpulan
 
-Berdasarkan hasil pengujian kinerja server, dapat disimpulkan bahwa server mampu menangani permintaan dengan baik pada tingkat pengguna yang moderat, hingga 100 pengguna dengan laju spawn yang meningkat. Meskipun tidak terdapat kegagalan pada uji skenario ekstrem dengan 1000 pengguna, terjadi peningkatan dramatis pada waktu respons untuk permintaan GET, menunjukkan adanya potensi ketidakmampuan server dalam menangani beban tinggi. Oleh karena itu, disarankan untuk mengoptimalkan kemampuan server, khususnya dalam menangani permintaan GET dalam skenario penggunaan yang ekstrem, guna memastikan kinerja yang responsif dan konsisten di bawah tekanan beban yang tinggi.
+Berdasarkan hasil pengujian kinerja server, dapat disimpulkan bahwa server mampu menangani permintaan dengan baik pada tingkat pengguna yang moderat, hingga 100 pengguna dengan laju spawn yang meningkat. Meskipun tidak terdapat kegagalan pada uji skenario ekstrem dengan 975 pengguna, terjadi peningkatan dramatis pada waktu respons untuk permintaan GET, menunjukkan adanya potensi ketidakmampuan server dalam menangani beban tinggi. Oleh karena itu, disarankan untuk mengoptimalkan kemampuan server, khususnya dalam menangani permintaan GET dalam skenario penggunaan yang ekstrem, guna memastikan kinerja yang responsif dan konsisten di bawah tekanan beban yang tinggi.
 
 
