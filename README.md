@@ -49,13 +49,13 @@ Dengan adanya proyek ini, kita memiliki peluang untuk meningkatkan efisiensi bis
 
 | No. | Kebutuhan | Spesifikasi | Harga |
 |----|-------------------------|-----------------------------------------|-------|
-| 1 | Database | 1vCPU, 2GB RAM | $8 |
-| 2 | Load Balancer | 2vCPU, 2GB RAM | $18 |
-| 3 | Worker 1 | 2vCPU, 2GB RAM | $18 |
-| 4 | Worker 2 | 2vCPU, 2GB RAM | $18 |
-| 5 | Worker 3 | 2vCPU, 2GB RAM | $18 |
-| 6 | Worker 4 | 2vCPU, 2GB RAM | $18 |
-| 7 | Worker 5 | 2vCPU, 2GB RAM | $18 |
+| 1 | Database | 1vCPU, 1GB RAM | $15|
+| 2 | Load Balancer | 1vCPU, 1GB RAM | $6 |
+| 3 | Worker 1 | 1vCPU, 1GB RAM | $6 |
+| 4 | Worker 2 | 1vCPU, 1GB RAM | $6 |
+| 5 | Worker 3 | 1vCPU, 1GB RAM | $6 |
+| 6 | Worker 4 | 1vCPU, 1GB RAM | $6 |
+| 7 | Worker 5 | 1vCPU, 1GB RAM | $6 |
 | | | **Total** | **$62** |
 
 ## Implementasi
