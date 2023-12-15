@@ -1,4 +1,4 @@
-![RRnu875-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/ed503d51-350d-4c5c-b0f8-4c32f18b63a1)![RRnu875-sr50](https://github.com/SulthanRaflyy/fp-cloud3/assets/103870239/9750ab4b-ce84-45a7-86dc-fb38c783ef2e)# **Final Project Teknologi Komputasi Awan** 
+# **Final Project Teknologi Komputasi Awan** 
 ## Kelas D 
 
 ### Kelompok 3 
